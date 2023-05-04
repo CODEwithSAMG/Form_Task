@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.general_form {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 40%;
+  margin: auto;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.menus {
+  display: flex;
+  gap: 1em;
+  background-color: rgb(210, 209, 209);
+  padding: 20px;
+}
+
+.menus a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.wrapper {
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px gray;
+  margin: 50px auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.d_flex {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 8px;
+}
+
+.input_field {
+  width: 250px;
+}
+
+.add_btn {
+  background-color: #ea7600;
+  width: 100px !important;
+  align-items: center;
+  position: relative !important;
+  right: -247px !important;
+  bottom: -20px;
+  padding: 10px;
+  color: white;
+}

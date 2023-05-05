@@ -5,7 +5,7 @@ const UserData = () => {
     const dispatch = useDispatch();
     const [eventDetails, setEventDetails] = useState({
         name: '',
-        cars: '',
+        category: '',
         date: '',
         location: '',
         description: ''
@@ -15,6 +15,7 @@ const UserData = () => {
         event.preventDefault();
         setEventDetails({
             name: '',
+            category: '',
             date: '',
             location: '',
             description: ''
@@ -24,7 +25,6 @@ const UserData = () => {
             eventDetails: eventDetails,
         }
 
-        console.log(newTodo);
         dispatch({
             type: 'ADD_TODO',
             payload: newTodo
@@ -40,45 +40,48 @@ const UserData = () => {
     }
 
     return (
-        <div className='wrapper'>
-            <h1>Form Data</h1>
-            <form
-                className="general_form"
-                onSubmit={handleSubmit}
-            >
-                <div className='d_flex'>
-                    <label htmlFor="name">Event Name:</label>
-                    <input placeholder='Enter Name' className='input_field' type="text" id="name" name="name" value={eventDetails.name} onChange={handleChange} />
-                </div>
+        <form onSubmit={handleSubmit} className="row g-3 form_wrapper">
+            <div className="col-12">
+                <label htmlFor="name" placeholder='Event Name:' className="form-label">Event Name:</label>
+                <input className="form-control" placeholder='Enter Name' classNameName='input_field' type="text" id="name" name="name" value={eventDetails.name} onChange={handleChange} />
+            </div>
 
-                <div className='d_flex'>
-                    <label htmlFor="name">Category:</label>
-                    <select className='input_field' name="cars" id="cars" style={{ textAlign: "center" }}>
-                        <option value="volvo">sports</option>
-                        <option value="saab">music</option>
-                        <option value="opel">general</option>
-                        <option value="audi">children</option>
-                        <option value="audi">school</option>
-                    </select>
-                </div>
+            <div className="col-12">
+                <label htmlFor="category" class="form-label">Category</label>
+                <select name="category" id="category" style={{ textAlign: "center" }} className="form-select"
+                    onChange={handleChange}
+                >
+                    <option selected>sports</option>
+                    <option value="saab">music</option>
+                    <option value="opel">general</option>
+                    <option value="audi">children</option>
+                    <option value="audi">school</option>
+                </select>
+            </div>
 
-                <div className='d_flex'>
-                    <label htmlFor="date">Date:</label>
-                    <input className='input_field' type="date" id="date" name="date" value={eventDetails.date} onChange={handleChange} />
-                </div>
+            <div className="col-12">
+                <label htmlFor="date" className="form-label">Date:</label>
+                <input type="date" id="date" name="date" value={eventDetails.date}
+                    onChange={handleChange} className="form-control" />
+            </div>
 
-                <div className='d_flex'>
-                    <label htmlFor="location">Location:</label>
-                    <input placeholder='Enter Location' className='input_field' type="text" id="location" name="location" value={eventDetails.location} onChange={handleChange} />
-                </div>
+            <div className="col-12">
+                <label htmlFor="location" className="form-label">Location:</label>
+                <input placeholder='Enter Location' type="text" className="form-control" id="location" name="location" value={eventDetails.location} onChange={handleChange} />
+            </div>
 
-                <div className='d_flex'>
+            <div className="col-12">
+                <div>
                     <label htmlFor="description">Description:</label>
-                    <textarea placeholder='Enter description' id="description" name="description" value={eventDetails.description} onChange={handleChange} />
+                    <textarea className="form-control" placeholder='Enter description' id="description" name="description" value={eventDetails.description} onChange={handleChange} />
                 </div>
-                <button className='add_btn' type="submit">Submit</button>
-            </form>
-        </div>
+            </div>
+
+
+            <div className="col-12 btn_container">
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
+        </form>
     )
 }
 

@@ -13,16 +13,13 @@ const FetchingData = () => {
     return (
         <table>
             <tr>
+                <th>Id</th>
                 <th>Event Name</th>
-                <th>Event Type</th>
-                <th>Country</th>
+                <th>Category</th>
+                <th>Date</th>
                 <th>Location</th>
+                <th>Description</th>
             </tr>
-            {/* <tr>
-                <td>{gettingData}</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr> */}
 
             <tbody>
                 <TableData showData={gettingDatas} />

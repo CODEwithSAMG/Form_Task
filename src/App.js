@@ -4,6 +4,7 @@ import Menu from './components/Menu';
 import UserData from './components/UserData';
 
 const App = () => {
+
   return (<>
     <Menu />
     <Switch>

@@ -1,18 +1,33 @@
-import Fetching from './components/FetchingData';
-import { Route, Switch } from "react-router-dom";
-import Menu from './components/Menu';
-import UserData from './components/UserData';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTodos } from './redux/slice/todo';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.todo.data);
 
-  return (<>
-    <Menu />
-    <Switch>
-      <Route exact path="/" component={UserData} />
-      <Route exact path="/Fetching" component={Fetching} />
-    </Switch>
-  </>
-  );
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [])
+
+  // console.log(state)
+
+  if (state.isLoading) {
+    return <h1>Loading....</h1>
+  }
+
+  return (
+    <div>
+      <h3>Hello World</h3>
+      {/* <button onClick={(e) => dispatch(fetchTodos())}>ap</button> */}
+      {state && state.map((el) => {
+        return el === 12 <ul ul >
+          <li>{el.title}</li>
+          </ul>
+
+      })}
+    </div >
+  )
 }
 
 export default App;

@@ -10,7 +10,6 @@ const App = () => {
     dispatch(fetchTodos())
   }, [])
 
-  // console.log(state)
 
   if (state.isLoading) {
     return <h1>Loading....</h1>
@@ -19,14 +18,15 @@ const App = () => {
   return (
     <div>
       <h3>Hello World</h3>
-      {/* <button onClick={(e) => dispatch(fetchTodos())}>ap</button> */}
       {state && state.map((el) => {
-        return el === 12 <ul ul >
-          <li>{el.title}</li>
+        const { id, title } = el;
+        return (
+          <ul key={id}>
+            <li >{title}</li>
           </ul>
-
+        )
       })}
-    </div >
+    </div>
   )
 }
 

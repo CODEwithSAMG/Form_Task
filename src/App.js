@@ -1,33 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTodos } from './redux/slice/todo';
+import React, { useState } from "react";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.todo.data);
+  const [image, setImage] = useState();
 
-  useEffect(() => {
-    dispatch(fetchTodos())
-  }, [])
-
-
-  if (state.isLoading) {
-    return <h1>Loading....</h1>
-  }
+  const handleImgChange = (e) => {
+    setImage(e.target.files[0])
+  };
 
   return (
     <div>
       <h3>Hello World</h3>
-      {state && state.map((el) => {
-        const { id, title } = el;
-        return (
-          <ul key={id}>
-            <li >{title}</li>
-          </ul>
-        )
-      })}
+      <input
+        type="file"
+        onChange={handleImgChange}
+      />
+      {
+        image && <img
+          width={100}
+          height={100}
+          src={URL.createObjectURL(image)}
+        />
+      }
     </div>
-  )
-}
+  );
+};
 
 export default App;
